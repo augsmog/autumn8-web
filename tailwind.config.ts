@@ -9,38 +9,43 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        navy: {
-          DEFAULT: '#1B4F72',
-          dark: '#0F2A3D',
-          deeper: '#0A1F2E',
-          light: '#2563A8',
+        background: '#09090B',
+        surface: '#18181B',
+        'surface-hover': '#27272A',
+        border: '#3F3F46',
+        'text-primary': '#FAFAFA',
+        'text-secondary': '#A1A1AA',
+        'text-muted': '#71717A',
+        brand: {
+          orange: '#F97316',
+          'orange-dark': '#EA580C',
+          'orange-light': '#FB923C',
+          green: '#16A34A',
+          'green-dark': '#15803D',
         },
-        accent: {
-          DEFAULT: '#2E86C1',
-          light: '#5BA3D0',
-          dark: '#1A6898',
-        },
+        cta: '#F59E0B',
+        'cta-hover': '#D97706',
       },
       fontFamily: {
         sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
       },
       backgroundImage: {
-        'hero-gradient': 'linear-gradient(135deg, #0A1F2E 0%, #0F2A3D 50%, #1B4F72 100%)',
-        'card-gradient': 'linear-gradient(135deg, rgba(27,79,114,0.15) 0%, rgba(46,134,193,0.08) 100%)',
-      },
-      animation: {
-        'fade-up': 'fadeUp 0.6s ease-out forwards',
-        'fade-in': 'fadeIn 0.4s ease-out forwards',
+        'brand-gradient': 'linear-gradient(135deg, #F97316, #EA580C, #D97706)',
+        'hero-glow': 'radial-gradient(ellipse 80% 50% at 50% -10%, rgba(249,115,22,0.12), transparent)',
       },
       keyframes: {
-        fadeUp: {
-          '0%': { opacity: '0', transform: 'translateY(24px)' },
-          '100%': { opacity: '1', transform: 'translateY(0)' },
+        'pulse-glow': {
+          '0%, 100%': { boxShadow: '0 0 20px rgba(249,115,22,0.3)' },
+          '50%': { boxShadow: '0 0 40px rgba(249,115,22,0.6)' },
         },
-        fadeIn: {
-          '0%': { opacity: '0' },
-          '100%': { opacity: '1' },
+        marquee: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-50%)' },
         },
+      },
+      animation: {
+        'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
+        marquee: 'marquee 20s linear infinite',
       },
     },
   },

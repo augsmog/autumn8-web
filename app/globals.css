@@ -14,18 +14,55 @@
 
 html {
   scroll-behavior: smooth;
+  background-color: #09090B;
 }
 
 body {
-  background-color: #ffffff;
-  color: #111827;
+  background-color: #09090B;
+  color: #FAFAFA;
   font-family: var(--font-inter);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+/* Grid texture overlay */
+.grid-texture {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 72px 72px;
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #FB923C, #F97316, #EA580C);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* CTA glow pulse */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(245, 158, 11, 0.3); }
+  50%       { box-shadow: 0 0 40px rgba(245, 158, 11, 0.6); }
+}
+.cta-glow { animation: pulse-glow 2s ease-in-out infinite; }
+
+/* Marquee */
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-marquee { animation: marquee 24s linear infinite; }
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
   }
+}
+
+@layer utilities {
+  .text-balance { text-wrap: balance; }
 }

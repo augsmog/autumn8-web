@@ -1,8 +1,6 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
-import Nav from '@/components/nav';
-import Footer from '@/components/footer';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -11,63 +9,35 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: {
-    default: 'Autumn8 — Service Business Automation',
-    template: '%s | Autumn8',
-  },
+  title: 'Autumn8 — Managed Business Automation for Service Companies',
   description:
-    'Managed automation for pest control, lawn care, and pool service companies. Lead follow-up, scheduling, invoicing, reviews, and reporting — handled for you.',
-  keywords: [
-    'service business automation',
-    'pest control automation',
-    'lawn care software',
-    'pool service automation',
-    'GoHighLevel automation',
-    'managed automation service',
-  ],
+    "We manage your leads, scheduling, invoicing, reviews, and reporting. Focus on your work. We'll handle the rest. Free operations audit available.",
+  keywords: ['service business automation', 'field service automation', 'home service automation', 'GoHighLevel', 'managed automation'],
   authors: [{ name: 'Autumn8' }],
   openGraph: {
     type: 'website',
     locale: 'en_US',
     url: 'https://autumn8.me',
     siteName: 'Autumn8',
-    title: 'Autumn8 — Your Service Business, On Autopilot',
+    title: 'Autumn8 — Stop Running Your Business. Start Growing It.',
     description:
-      'We handle lead follow-up, scheduling, invoicing, reviews, and reporting for pest control, lawn care, and pool service companies.',
-    images: [
-      {
-        url: '/og-image.png',
-        width: 1200,
-        height: 630,
-        alt: 'Autumn8 — Service Business Automation',
-      },
-    ],
+      'Managed business automation for pest control, lawn care, pool maintenance, and home service companies. 90-day performance guarantee.',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Autumn8' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Autumn8 — Your Service Business, On Autopilot',
-    description: 'Managed automation for service businesses. Starting at $1,297/month.',
+    title: 'Autumn8 — Stop Running Your Business. Start Growing It.',
+    description: 'Managed business automation for service companies. Free operations audit.',
     images: ['/og-image.png'],
   },
-  robots: {
-    index: true,
-    follow: true,
-  },
+  robots: { index: true, follow: true },
   metadataBase: new URL('https://autumn8.me'),
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={inter.variable}>
-      <body>
-        <Nav />
-        <main>{children}</main>
-        <Footer />
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
