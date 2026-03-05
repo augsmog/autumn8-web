@@ -5,7 +5,6 @@ import { useRef } from 'react';
 import { X, Check } from 'lucide-react';
 
 const WITHOUT = [
-  'Missed calls go to voicemail',
   'Leads sit for hours without follow-up',
   'Manual invoicing, constant chasing',
   '3.2★ Google rating, no review strategy',
@@ -14,7 +13,6 @@ const WITHOUT = [
 
 const WITH = [
   'Every lead gets a response in under 60 seconds',
-  'Automated booking, reminders, and follow-ups',
   'Invoices sent automatically, payments collected',
   '4.8★ rating with automated review requests',
   'Under 1 hour/week reviewing your dashboard',

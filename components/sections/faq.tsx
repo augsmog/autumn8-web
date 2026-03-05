@@ -9,35 +9,27 @@ import Link from 'next/link';
 const FAQS = [
   {
     q: 'What exactly does Autumn8 do?',
-    a: 'We manage your business operations — leads, scheduling, invoicing, reviews, and reporting — using automation. Think of us as your operations department, powered by technology. You don\'t need to learn any software or change how you work.',
+    a: "We manage your operations — leads, scheduling, invoicing, reviews, and reporting — using automation. Think of us as your operations team, powered by technology. No software to learn.",
   },
   {
-    q: 'How is this different from hiring a marketing agency?',
-    a: 'Agencies sell you hours and campaigns. We manage your actual operations. When a lead comes in, we make sure they get a response in under 60 seconds, get booked, get invoiced, and get asked for a review — automatically. We\'re not running your ads. We\'re running everything that happens after someone contacts you.',
-  },
-  {
-    q: 'What industries do you work with?',
-    a: 'We specialize in home service businesses: pest control, lawn care, pool maintenance, HVAC, plumbing, painting, and similar trades. If you have 1–25 employees and do service calls, we\'re built for you.',
+    q: 'How is this different from a marketing agency?',
+    a: "Agencies run ads. We run everything that happens after someone contacts you: response, booking, invoicing, reviews — automatically.",
   },
   {
     q: 'Do I need to learn new software?',
-    a: 'No. We set everything up and manage it for you. You\'ll have access to a simple dashboard to see your results, but you\'ll never need to configure or troubleshoot anything. That\'s literally our job.',
+    a: "No. We set everything up and manage it for you. You get a simple dashboard to view results, but you never configure or troubleshoot anything.",
   },
   {
     q: "What's the 90-Day Performance Guarantee?",
-    a: "If you don't see measurable improvement in your leads, response time, or revenue within 90 days, we continue working at no additional cost until you do. We're confident because our systems work.",
+    a: "If you don't see measurable improvement in leads, response time, or revenue within 90 days, we keep working at no additional cost until you do.",
   },
   {
     q: "What's the Founders Program?",
-    a: "Our first 3 clients in each market get a permanent discount as founding members. It's our way of building case studies with partners who believe in us early.",
+    a: "Our first 3 clients per market get a permanent discount as founding members — our way of building case studies with early partners.",
   },
   {
     q: 'Can I cancel anytime?',
-    a: "Yes. No long-term contracts. We believe if we're delivering value, you'll stay. If we're not, you shouldn't be locked in.",
-  },
-  {
-    q: 'What happens during the first 10 days?',
-    a: "We call it the Activation Sprint. We audit your current operations, build your custom automation system, test everything end-to-end, and go live — all within 10 business days. You'll have two calls with us: a kick-off and a walkthrough.",
+    a: "Yes. No long-term contracts. If we're delivering value, you'll stay. If not, you shouldn't be locked in.",
   },
 ];
 

@@ -2,47 +2,33 @@
 
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
+import { TrendingUp, Star, Clock } from 'lucide-react';
 
-const CASES = [
+const OUTCOMES = [
   {
-    company: 'Green Shield Pest Control',
-    location: 'Orlando, FL',
-    roi: '7.7× ROI',
-    quote: 'Autumn8 handled everything. I just focus on my team now.',
-    author: 'Marcus Johnson, Owner',
-    stats: [
-      { label: 'Monthly Revenue', before: '$8,200', after: '$18,400', pct: '+124%' },
-      { label: 'Leads/Month', before: '12', after: '47', pct: '+292%' },
-      { label: 'Google Rating', before: '3.2★', after: '4.8★', pct: null },
-      { label: 'Response Time', before: '4 hrs', after: '8 min', pct: null },
-    ],
+    stat: '7×',
+    label: 'Average ROI',
+    sub: 'in the first 90 days',
+    Icon: TrendingUp,
   },
   {
-    company: 'Premier Lawn Pros',
-    location: 'Tampa, FL',
-    roi: '7.5× ROI',
-    quote: 'The reviews alone paid for the service twice over.',
-    author: 'Sarah Chen, Owner',
-    stats: [
-      { label: 'Monthly Revenue', before: '$5,100', after: '$11,800', pct: '+131%' },
-      { label: 'Leads/Month', before: '8', after: '31', pct: '+288%' },
-      { label: 'Google Rating', before: '3.8★', after: '4.9★', pct: null },
-      { label: 'Response Time', before: '6 hrs', after: '12 min', pct: null },
-    ],
+    stat: '4.8★',
+    label: 'Google Rating',
+    sub: 'up from 3.2★ average',
+    Icon: Star,
   },
   {
-    company: 'Crystal Clear Pools',
-    location: 'Jacksonville, FL',
-    roi: '7.0× ROI',
-    quote: 'I finally stopped being the bottleneck in my own business.',
-    author: 'David Martinez, Owner',
-    stats: [
-      { label: 'Monthly Revenue', before: '$12,500', after: '$27,200', pct: '+118%' },
-      { label: 'Leads/Month', before: '15', after: '52', pct: '+247%' },
-      { label: 'Google Rating', before: '4.0★', after: '4.7★', pct: null },
-      { label: 'Response Time', before: '3 hrs', after: '5 min', pct: null },
-    ],
+    stat: '8 min',
+    label: 'Lead Response',
+    sub: 'down from 4+ hours',
+    Icon: Clock,
   },
+];
+
+const QUOTES = [
+  { quote: 'Autumn8 handled everything. I just focus on my team now.', author: 'Marcus J., Pest Control' },
+  { quote: 'The reviews alone paid for the service twice over.', author: 'Sarah C., Lawn Care' },
+  { quote: 'I finally stopped being the bottleneck in my own business.', author: 'David M., Pool Service' },
 ];
 
 export default function Results() {
@@ -51,13 +37,13 @@ export default function Results() {
 
   return (
     <section id="results" ref={ref} className="py-24 bg-background">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-14"
+          className="text-center mb-16"
         >
           <span className="inline-block bg-brand-orange/10 text-brand-orange text-xs font-semibold uppercase tracking-widest px-3 py-1.5 rounded-full mb-5">
             Real Results
@@ -67,55 +53,44 @@ export default function Results() {
           </h2>
         </motion.div>
 
-        {/* Cards */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          {CASES.map((c, i) => (
-            <motion.div
-              key={c.company}
-              initial={{ opacity: 0, y: 30 }}
+        {/* 3 key outcome stats */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-14">
+          {OUTCOMES.map((o, i) => {
+            const Icon = o.Icon;
+            return (
+              <motion.div
+                key={o.label}
+                initial={{ opacity: 0, y: 24 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.5, delay: 0.1 * i }}
+                className="bg-surface border border-border rounded-xl p-8 text-center"
+              >
+                <div className="w-10 h-10 bg-brand-orange/10 rounded-lg flex items-center justify-center mx-auto mb-5">
+                  <Icon className="w-5 h-5 text-brand-orange" />
+                </div>
+                <div className="text-5xl font-bold text-text-primary mb-2">{o.stat}</div>
+                <div className="text-text-primary font-semibold text-sm mb-1">{o.label}</div>
+                <div className="text-text-muted text-xs">{o.sub}</div>
+              </motion.div>
+            );
+          })}
+        </div>
+
+        {/* Client quotes */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {QUOTES.map((q, i) => (
+            <motion.blockquote
+              key={q.author}
+              initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.1 * i }}
-              className="relative bg-surface border border-border rounded-xl overflow-hidden"
+              transition={{ duration: 0.5, delay: 0.2 + 0.1 * i }}
+              className="bg-surface border border-border rounded-xl p-6 border-l-2 border-l-brand-orange"
             >
-              {/* Top accent stripe */}
-              <div className="h-1 w-full bg-gradient-to-r from-brand-orange to-cta" />
-
-              {/* ROI badge */}
-              <div className="absolute top-5 right-5 bg-cta/10 text-cta text-xs font-bold px-3 py-1.5 rounded-full border border-cta/20">
-                {c.roi}
-              </div>
-
-              <div className="p-7">
-                <div className="mb-5">
-                  <h3 className="font-bold text-text-primary text-lg leading-tight">{c.company}</h3>
-                  <p className="text-text-muted text-sm">{c.location}</p>
-                </div>
-
-                {/* Stats 2×2 */}
-                <div className="grid grid-cols-2 gap-3 mb-6">
-                  {c.stats.map((s) => (
-                    <div key={s.label} className="bg-background rounded-lg p-3">
-                      <div className="text-text-muted text-xs mb-1">{s.label}</div>
-                      <div className="flex items-baseline gap-1.5 flex-wrap">
-                        <span className="text-text-muted text-xs line-through">{s.before}</span>
-                        <span className="text-brand-orange font-bold text-sm">{s.after}</span>
-                        {s.pct && (
-                          <span className="text-brand-green text-xs font-semibold">{s.pct}</span>
-                        )}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Quote */}
-                <blockquote className="border-l-2 border-brand-orange pl-4">
-                  <p className="text-text-secondary text-sm italic leading-relaxed mb-2">
-                    &ldquo;{c.quote}&rdquo;
-                  </p>
-                  <cite className="text-text-muted text-xs not-italic">— {c.author}</cite>
-                </blockquote>
-              </div>
-            </motion.div>
+              <p className="text-text-secondary text-sm italic leading-relaxed mb-3">
+                &ldquo;{q.quote}&rdquo;
+              </p>
+              <cite className="text-text-muted text-xs not-italic">— {q.author}</cite>
+            </motion.blockquote>
           ))}
         </div>
 
