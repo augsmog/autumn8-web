@@ -25,24 +25,24 @@ export default function FinalCTA() {
             Stop Losing Customers to Slow Operations
           </h2>
           <p className="text-text-secondary text-lg leading-relaxed mb-10">
-            Get a free operations audit and see exactly where your business
-            is leaving money on the table.
+            14-day free trial. Founders pricing for the first 25 customers.
+            Your operations running on autopilot in under 48 hours.
           </p>
 
           <Link
-            href="/audit"
+            href="/pricing"
             className="cta-glow group inline-flex items-center gap-3 bg-cta hover:bg-cta-hover text-black font-bold text-xl px-10 py-5 rounded-full transition-all hover:scale-105"
           >
-            Get Your Free Operations Audit
+            Start Your Free Trial
             <ArrowRight size={20} className="group-hover:translate-x-0.5 transition-transform" />
           </Link>
 
           <p className="text-text-muted text-sm mt-5 mb-6">
-            No credit card required. 15-minute call. Real insights.
+            No credit card required. Cancel anytime.
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-6 text-text-muted text-sm">
-            {['✓ Free audit', '✓ No commitment', '✓ Results in 90 days'].map((item) => (
+            {['✓ 14-day free trial', '✓ Live in 48 hours', '✓ 90-day guarantee'].map((item) => (
               <span key={item} className="text-brand-orange/80">{item}</span>
             ))}
           </div>

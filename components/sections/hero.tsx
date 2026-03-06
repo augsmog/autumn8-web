@@ -75,10 +75,10 @@ export default function Hero() {
           className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12"
         >
           <Link
-            href="/audit"
+            href="/pricing"
             className="cta-glow group flex items-center gap-2 bg-cta hover:bg-cta-hover text-black font-semibold text-lg px-8 py-4 rounded-full transition-all hover:scale-105"
           >
-            Get Your Free Operations Audit
+            Start Free Trial
             <ArrowRight size={18} className="group-hover:translate-x-0.5 transition-transform" />
           </Link>
           <a

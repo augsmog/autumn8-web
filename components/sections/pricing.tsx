@@ -8,46 +8,46 @@ import { Check, ShieldCheck } from 'lucide-react';
 const TIERS = [
   {
     name: 'Foundation',
-    price: 1297,
-    foundersPrice: 897,
+    price: 249,
+    foundersPrice: 149,
     team: 'For teams of 1–5',
     features: [
       'Speed-to-lead automation',
       'Appointment scheduling & reminders',
       'Automated invoicing & payment collection',
       'Google review management',
+      'Local SEO tracking',
       'Monthly performance report',
-      '15-minute monthly check-in call',
     ],
     popular: false,
   },
   {
     name: 'Growth',
-    price: 2497,
-    foundersPrice: 2097,
+    price: 499,
+    foundersPrice: 349,
     team: 'For teams of 5–15',
     features: [
       'Everything in Foundation',
-      'Multi-channel lead capture',
-      'Hiring pipeline automation',
-      'Competitor monitoring',
-      'Quarterly business review',
+      'Recurring revenue / service agreements',
+      'Referral program automation',
+      'Churn detection & win-back sequences',
+      'Seasonal demand planning',
       'Priority support',
     ],
     popular: true,
   },
   {
     name: 'Scale',
-    price: 4497,
-    foundersPrice: 4097,
-    team: 'For teams of 15–25',
+    price: 999,
+    foundersPrice: 749,
+    team: 'For teams of 10–25+',
     features: [
       'Everything in Growth',
+      'Route optimization',
+      'Per-job cost & margin tracking',
+      'Competitive pricing intelligence',
       'Multi-location support',
-      'Custom integrations',
       'Dedicated account manager',
-      'Weekly performance calls',
-      'Custom reporting dashboard',
     ],
     popular: false,
   },
@@ -143,7 +143,7 @@ export default function Pricing() {
           ))}
         </div>
 
-        {/* Ramp note */}
+        {/* Founders note */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -151,14 +151,14 @@ export default function Pricing() {
           className="bg-surface border border-border rounded-xl p-6 text-center mb-5 max-w-2xl mx-auto"
         >
           <div className="inline-block bg-cta/10 text-cta text-xs font-bold px-3 py-1 rounded-full mb-3">
-            LIMITED AVAILABILITY
+            FOUNDERS PRICING — FIRST 25 CUSTOMERS
           </div>
           <p className="text-text-secondary text-sm leading-relaxed">
-            <span className="text-text-primary font-semibold">Ramp pricing: </span>
-            Start at just $297/month → $597 month 2 → $997 month 3 → full price month 4
+            <span className="text-text-primary font-semibold">Lock in Founders pricing for 12 months. </span>
+            Foundation $149 · Growth $349 · Scale $749 — available to the first 25 customers total.
           </p>
           <p className="text-text-muted text-xs mt-2">
-            Founders Program: First 3 clients per market lock in permanent savings.
+            Start free for 14 days. No credit card required. Full price applies after trial.
           </p>
         </motion.div>
 
