@@ -1,90 +1,67 @@
-import Link from 'next/link';
-import { AUDIT_URL, CLIENT_LOGIN_URL } from '@/lib/constants';
+import { Mail, Twitter, Linkedin, Github } from "lucide-react";
+import Link from "next/link";
 
-export default function Footer() {
+export function Footer() {
   return (
-    <footer className="bg-navy-deeper border-t border-white/10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-10">
-          <div className="col-span-2 md:col-span-1">
-            <Link href="/" className="inline-block mb-4">
-              <span className="text-xl font-bold text-white tracking-tight">
-                autumn<span className="text-accent">8</span>
-              </span>
+    <footer className="bg-slate-900 text-gray-300 py-12 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+          <div>
+            <Link href="/" className="flex items-center space-x-2 mb-4">
+              <img src="/logo.png" alt="Autumn8" className="h-16" />
             </Link>
-            <p className="text-sm text-white/50 leading-relaxed max-w-xs">
-              Managed automation for field service and home service businesses — from solo operators to PE-backed rollups.
+            <p className="text-gray-400 text-sm">
+              Administrative automation for small service businesses. Save time, grow faster.
             </p>
           </div>
 
           <div>
-            <h4 className="text-xs font-semibold text-white/40 uppercase tracking-widest mb-4">Services</h4>
-            <ul className="space-y-2.5">
-              {[
-                ['How It Works', '/how-it-works'],
-                ['Pricing', '/pricing'],
-                ['Book an Audit', '/audit'],
-              ].map(([label, href]) => (
-                <li key={href}>
-                  <Link href={href} className="text-sm text-white/60 hover:text-white transition-colors">
-                    {label}
-                  </Link>
-                </li>
-              ))}
+            <h4 className="text-white mb-4">Product</h4>
+            <ul className="space-y-2 text-sm">
+              <li><Link href="/features" className="hover:text-white transition-colors">Features</Link></li>
+              <li><Link href="/pricing" className="hover:text-white transition-colors">Pricing</Link></li>
+              <li><Link href="/how-it-works" className="hover:text-white transition-colors">How It Works</Link></li>
+              <li><a href="#integrations" className="hover:text-white transition-colors">Integrations</a></li>
             </ul>
           </div>
 
           <div>
-            <h4 className="text-xs font-semibold text-white/40 uppercase tracking-widest mb-4">Who We Serve</h4>
-            <ul className="space-y-2.5">
-              {[
-                ['Field Service', '/industries'],
-                ['Home Services', '/industries'],
-                ['PE Rollups', '/industries'],
-              ].map(([label, href]) => (
-                <li key={label}>
-                  <Link href={href} className="text-sm text-white/60 hover:text-white transition-colors">
-                    {label}
-                  </Link>
-                </li>
-              ))}
+            <h4 className="text-white mb-4">Company</h4>
+            <ul className="space-y-2 text-sm">
+              <li><span className="text-gray-400 cursor-not-allowed">About</span></li>
+              <li><span className="text-gray-400 cursor-not-allowed">Blog</span></li>
+              <li><Link href="/get-started" className="hover:text-white transition-colors">Contact</Link></li>
             </ul>
           </div>
 
           <div>
-            <h4 className="text-xs font-semibold text-white/40 uppercase tracking-widest mb-4">Account</h4>
-            <ul className="space-y-2.5">
-              <li>
-                <Link
-                  href={CLIENT_LOGIN_URL}
-                  className="text-sm text-white/60 hover:text-white transition-colors"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Client Login
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href={AUDIT_URL}
-                  className="text-sm text-accent hover:text-accent-light transition-colors"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Book Free Audit →
-                </Link>
-              </li>
+            <h4 className="text-white mb-4">Legal</h4>
+            <ul className="space-y-2 text-sm">
+              <li><span className="text-gray-400 cursor-not-allowed">Privacy Policy</span></li>
+              <li><span className="text-gray-400 cursor-not-allowed">Terms of Service</span></li>
+              <li><span className="text-gray-400 cursor-not-allowed">Security</span></li>
             </ul>
           </div>
         </div>
 
-        <div className="border-t border-white/10 pt-6 flex flex-col sm:flex-row justify-between items-center gap-3">
-          <p className="text-xs text-white/30">
-            © {new Date().getFullYear()} Autumn8. All rights reserved.
+        <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+          <p className="text-sm text-gray-400 mb-4 md:mb-0">
+            © 2026 Autumn8. All rights reserved.
           </p>
-          <p className="text-xs text-white/30">
-            augie@autumn8.me
-          </p>
+          <div className="flex space-x-6">
+            <a href="#twitter" className="hover:text-white transition-colors">
+              <Twitter className="h-5 w-5" />
+            </a>
+            <a href="#linkedin" className="hover:text-white transition-colors">
+              <Linkedin className="h-5 w-5" />
+            </a>
+            <a href="#github" className="hover:text-white transition-colors">
+              <Github className="h-5 w-5" />
+            </a>
+            <a href="mailto:hello@autumn8.me" className="hover:text-white transition-colors">
+              <Mail className="h-5 w-5" />
+            </a>
+          </div>
         </div>
       </div>
     </footer>

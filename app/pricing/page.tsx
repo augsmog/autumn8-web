@@ -1,159 +1,272 @@
-'use client';
+import { Navbar } from "@/components/navbar";
+import { Footer } from "@/components/footer";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { CheckCircle2, ArrowRight, HelpCircle } from "lucide-react";
+import Link from "next/link";
 
-import Link from 'next/link';
-import { motion } from 'framer-motion';
-import { Check, ArrowRight } from 'lucide-react';
-import { PRICING_TIERS, AUDIT_URL } from '@/lib/constants';
-import CTABanner from '@/components/cta-banner';
+interface PricingTier {
+  name: string;
+  price: string;
+  period: string;
+  description: string;
+  features: string[];
+  highlighted?: boolean;
+  cta: string;
+}
 
-const BILLING_FAQ = [
+const pricingTiers: PricingTier[] = [
   {
-    q: 'What is Founders Pricing?',
-    a: "Our first 10 clients lock in their monthly rate for life. We're filling those spots now. Pricing increases as we scale capacity.",
+    name: "Starter",
+    price: "$99",
+    period: "/month",
+    description: "Perfect for solopreneurs and small service businesses just getting started with automation.",
+    features: [
+      "Up to 500 automated tasks per month",
+      "5 tool integrations",
+      "Basic workflow templates",
+      "Email support",
+      "Dashboard and reporting",
+      "Data sync every 15 minutes",
+    ],
+    cta: "Get Started",
   },
   {
-    q: 'Is there a setup fee?',
-    a: 'No setup fees. The first 90 days include full onboarding and implementation — that\'s covered in your monthly rate.',
+    name: "Professional",
+    price: "$249",
+    period: "/month",
+    description: "Ideal for growing businesses that need advanced automation and priority support.",
+    features: [
+      "Up to 2,500 automated tasks per month",
+      "15 tool integrations",
+      "Advanced workflow builder",
+      "Priority email & chat support",
+      "Custom branded client portal",
+      "Data sync every 5 minutes",
+      "Advanced analytics and reporting",
+      "Team collaboration (up to 5 users)",
+    ],
+    highlighted: true,
+    cta: "Get Started",
   },
   {
-    q: 'What does the 90-day commitment cover?',
-    a: 'Building the automations takes time to do right. The 90-day minimum ensures we can implement, test, and optimize your systems before they run on autopilot.',
+    name: "Enterprise",
+    price: "Custom",
+    period: "pricing",
+    description: "For established businesses requiring unlimited automation, dedicated support, and custom solutions.",
+    features: [
+      "Unlimited automated tasks",
+      "Unlimited tool integrations",
+      "Custom workflow development",
+      "Dedicated account manager",
+      "Phone, email, and chat support",
+      "Real-time data synchronization",
+      "White-label options",
+      "Unlimited team members",
+      "Custom API access",
+      "SLA guarantees",
+    ],
+    cta: "Contact Sales",
+  },
+];
+
+const faqs = [
+  {
+    question: "Can I change plans later?",
+    answer: "Yes! You can upgrade or downgrade your plan at any time. Changes take effect immediately, and we'll prorate any charges.",
   },
   {
-    q: 'Can I upgrade or downgrade my plan?',
-    a: 'Yes. You can upgrade at any time. Downgrades take effect at the start of the next billing cycle.',
+    question: "What happens if I exceed my task limit?",
+    answer: "We'll notify you when you approach your limit. You can either upgrade to a higher tier or purchase additional task packs as needed.",
   },
   {
-    q: 'What payment methods do you accept?',
-    a: 'We invoice monthly via Stripe. Major credit cards and ACH bank transfers accepted.',
+    question: "Do you offer discounts for annual billing?",
+    answer: "Yes! Save 20% when you pay annually instead of monthly. Contact us for details.",
+  },
+  {
+    question: "What counts as an 'automated task'?",
+    answer: "An automated task is a single action performed by our system, such as sending an email, creating an invoice, or updating a calendar entry.",
+  },
+  {
+    question: "Is my data secure?",
+    answer: "Absolutely. We use bank-level encryption, secure OAuth authentication, and regular security audits. Your data is always protected.",
+  },
+  {
+    question: "Can I cancel anytime?",
+    answer: "Yes, you can cancel your subscription at any time. Your service continues until the end of your current billing period.",
   },
 ];
 
 export default function PricingPage() {
   return (
-    <>
-      {/* Header */}
-      <section className="bg-hero-gradient pt-28 pb-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="inline-flex items-center gap-2 bg-accent/10 border border-accent/30 text-accent text-xs font-semibold px-4 py-2 rounded-full mb-6">
-            <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
-            Founders Pricing — 3 spots remaining
-          </div>
-          <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">
-            Simple, transparent pricing.
+    <div className="min-h-screen bg-white">
+      <Navbar />
+
+      {/* Hero Section */}
+      <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-orange-50 to-white">
+        <div className="max-w-7xl mx-auto text-center">
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl mb-6 text-gray-900">
+            Simple, Transparent
+            <br />
+            <span className="bg-gradient-to-r from-slate-700 to-orange-500 bg-clip-text text-transparent">
+              Pricing
+            </span>
           </h1>
-          <p className="text-white/60 text-lg max-w-xl mx-auto">
-            No setup fees. No contracts after 90 days. Cancel anytime after the initial commitment period.
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-10">
+            Choose the plan that fits your business. All plans include core automation features
+            and can be upgraded as you grow.
           </p>
         </div>
       </section>
 
-      {/* Pricing cards */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
-            {PRICING_TIERS.map((tier, i) => (
-              <motion.div
-                key={tier.name}
-                initial={{ opacity: 0, y: 28 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: i * 0.12 }}
-                className={`relative rounded-2xl p-8 flex flex-col ${
-                  tier.highlighted
-                    ? 'bg-navy-dark border-2 border-accent shadow-xl shadow-accent/10'
-                    : 'bg-white border border-gray-200 shadow-sm'
+      {/* Pricing Cards */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {pricingTiers.map((tier, index) => (
+              <Card
+                key={index}
+                className={`border-0 shadow-lg hover:shadow-xl transition-shadow ${
+                  tier.highlighted ? 'ring-2 ring-blue-600 relative' : ''
                 }`}
               >
-                {tier.badge && (
-                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
-                    <span className="bg-accent text-white text-xs font-bold px-4 py-1.5 rounded-full">
-                      {tier.badge}
+                {tier.highlighted && (
+                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                    <span className="bg-orange-500 text-white px-4 py-1 rounded-full text-sm">
+                      Most Popular
                     </span>
                   </div>
                 )}
-
-                <div className="mb-6">
-                  <h3
-                    className={`text-lg font-bold mb-1 ${
-                      tier.highlighted ? 'text-white' : 'text-navy-dark'
-                    }`}
-                  >
-                    {tier.name}
-                  </h3>
-                  <p className={`text-sm leading-snug ${tier.highlighted ? 'text-white/60' : 'text-gray-500'}`}>
-                    {tier.description}
-                  </p>
-                </div>
-
-                <div className="mb-7">
-                  <span className={`text-4xl font-bold ${tier.highlighted ? 'text-white' : 'text-navy-dark'}`}>
-                    ${tier.price.toLocaleString()}
-                  </span>
-                  <span className={`text-sm ml-1 ${tier.highlighted ? 'text-white/50' : 'text-gray-400'}`}>
-                    /month
-                  </span>
-                </div>
-
-                <ul className="space-y-3 mb-8 flex-1">
-                  {tier.features.map((feature) => (
-                    <li key={feature} className="flex items-start gap-3">
-                      <span
-                        className={`flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center mt-0.5 ${
-                          tier.highlighted ? 'bg-accent/20' : 'bg-accent/10'
-                        }`}
-                      >
-                        <Check size={11} className="text-accent" />
-                      </span>
-                      <span className={`text-sm ${tier.highlighted ? 'text-white/80' : 'text-gray-600'}`}>
-                        {feature}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-
-                <Link
-                  href={AUDIT_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`flex items-center justify-center gap-2 font-semibold px-6 py-3.5 rounded-xl transition-all text-sm ${
-                    tier.highlighted
-                      ? 'bg-accent hover:bg-accent-dark text-white'
-                      : 'border border-navy-dark/20 text-navy-dark hover:bg-navy-dark hover:text-white'
-                  }`}
-                >
-                  {tier.cta}
-                  <ArrowRight size={15} />
-                </Link>
-              </motion.div>
+                <CardHeader className="p-8">
+                  <h3 className="text-2xl text-gray-900 mb-2">{tier.name}</h3>
+                  <div className="mb-4">
+                    <span className="text-5xl text-gray-900">{tier.price}</span>
+                    <span className="text-gray-600">{tier.period}</span>
+                  </div>
+                  <p className="text-gray-600">{tier.description}</p>
+                </CardHeader>
+                <CardContent className="p-8 pt-0">
+                  <Link href="/get-started">
+                    <Button
+                      className={`w-full h-12 mb-6 ${
+                        tier.highlighted
+                          ? 'bg-orange-500 hover:bg-orange-600'
+                          : ''
+                      }`}
+                      variant={tier.highlighted ? 'default' : 'outline'}
+                    >
+                      {tier.cta}
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </Link>
+                  <ul className="space-y-3">
+                    {tier.features.map((feature, featureIndex) => (
+                      <li key={featureIndex} className="flex items-start text-gray-700">
+                        <CheckCircle2 className="h-5 w-5 text-green-500 mr-3 flex-shrink-0 mt-0.5" />
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
             ))}
           </div>
+        </div>
+      </section>
 
-          {/* Ramp pricing note */}
-          <div className="mt-10 text-center">
-            <p className="text-sm text-gray-500 max-w-lg mx-auto">
-              <span className="font-semibold text-navy-dark">Founders pricing note:</span> Early clients lock in their
-              rate for life. Pricing increases as we reach capacity — not based on arbitrary timelines.
+      {/* ROI Calculator Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl sm:text-5xl mb-4 text-gray-900">
+              Calculate Your ROI
+            </h2>
+            <p className="text-xl text-gray-600">
+              See how much time and money you could save with Autumn8
             </p>
           </div>
+
+          <Card className="border-0 shadow-xl">
+            <CardContent className="p-8">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <div>
+                  <div className="text-4xl mb-2 text-blue-600">20-25 hrs</div>
+                  <div className="text-sm text-gray-600 mb-2">Average Weekly Time Saved</div>
+                  <div className="text-2xl text-gray-900">1,000-1,200</div>
+                  <div className="text-sm text-gray-600">Hours saved annually</div>
+                </div>
+                <div>
+                  <div className="text-4xl mb-2 text-purple-600">$25-40</div>
+                  <div className="text-sm text-gray-600 mb-2">Your Hourly Billing Rate</div>
+                  <div className="text-2xl text-gray-900">$25,000-$48,000</div>
+                  <div className="text-sm text-gray-600">Annual value of time saved</div>
+                </div>
+                <div>
+                  <div className="text-4xl mb-2 text-green-600">5-10x</div>
+                  <div className="text-sm text-gray-600 mb-2">Expected ROI</div>
+                  <div className="text-2xl text-gray-900">First Month</div>
+                  <div className="text-sm text-gray-600">Typical payback period</div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
         </div>
       </section>
 
-      {/* Billing FAQ */}
-      <section className="py-20 bg-white">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold text-navy-dark text-center mb-10">Billing questions</h2>
-          <div className="divide-y divide-gray-100">
-            {BILLING_FAQ.map((item) => (
-              <div key={item.q} className="py-5">
-                <h3 className="font-semibold text-navy-dark mb-2">{item.q}</h3>
-                <p className="text-gray-500 text-sm leading-relaxed">{item.a}</p>
-              </div>
+      {/* FAQ Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl sm:text-5xl mb-4 text-gray-900">
+              Frequently Asked Questions
+            </h2>
+            <p className="text-xl text-gray-600">
+              Have questions? We&apos;ve got answers.
+            </p>
+          </div>
+
+          <div className="space-y-6">
+            {faqs.map((faq, index) => (
+              <Card key={index} className="border-0 shadow-md">
+                <CardContent className="p-6">
+                  <div className="flex items-start gap-4">
+                    <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
+                      <HelpCircle className="h-5 w-5 text-blue-600" />
+                    </div>
+                    <div>
+                      <h4 className="text-lg mb-2 text-gray-900">{faq.question}</h4>
+                      <p className="text-gray-600">{faq.answer}</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
             ))}
           </div>
         </div>
       </section>
 
-      <CTABanner />
-    </>
+      {/* CTA Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-blue-50">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-4xl sm:text-5xl mb-6 text-gray-900">
+            Ready to Start Saving Time?
+          </h2>
+          <p className="text-xl text-gray-600 mb-8">
+            Choose your plan and start automating your business today.
+          </p>
+          <Link href="/get-started">
+            <Button
+              size="lg"
+              className="bg-orange-500 hover:bg-orange-600 text-lg px-8 h-14"
+            >
+              Get Started Now
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+          </Link>
+        </div>
+      </section>
+
+      <Footer />
+    </div>
   );
 }
