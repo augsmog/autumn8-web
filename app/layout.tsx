@@ -30,6 +30,11 @@ export const metadata: Metadata = {
     description: 'Managed business automation for service companies. Free operations audit.',
     images: ['/og-image.png'],
   },
+  icons: {
+    icon: '/favicon.png',
+    shortcut: '/favicon.png',
+    apple: '/favicon.png',
+  },
   robots: { index: true, follow: true },
   metadataBase: new URL('https://autumn8.me'),
 };
