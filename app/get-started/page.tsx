@@ -6,71 +6,54 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
-import { CheckCircle2, ArrowRight, Mail, Building2, User, Phone } from "lucide-react";
-import Link from "next/link";
+import { CheckCircle2, ArrowRight, Mail, User } from "lucide-react";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
-const onboardingSteps = [
-  {
-    step: 1,
-    title: "Tell Us About Your Business",
-    description: "Quick 5-minute form about your services, customers, and goals",
-  },
-  {
-    step: 2,
-    title: "We Set Everything Up",
-    description: "Lead capture, scheduling, invoicing, reviews, and SEO — configured automatically",
-  },
-  {
-    step: 3,
-    title: "Your Automation Goes Live",
-    description: "Within 24 hours, every lead gets a response and every review gets managed",
-  },
-  {
-    step: 4,
-    title: "Watch Your Business Grow",
-    description: "Weekly reports show leads, reviews, and revenue — all handled automatically",
-  },
+const plans = [
+  { id: 'foundation', name: 'Foundation', price: '$249/mo', description: 'Core automation for your entire operation' },
+  { id: 'growth', name: 'Growth', price: '$499/mo', description: 'Grow revenue with recurring customers' },
+  { id: 'scale', name: 'Scale', price: '$999/mo', description: 'Full operational intelligence' },
 ];
 
 const benefits = [
   "Full setup completed within 24 hours",
-  "No setup fees — get running in 24 hours",
+  "No setup fees — get running immediately",
   "90-day performance guarantee",
   "Weekly performance reports from day one",
-  "All Foundation features included in every plan",
-  "Cancel anytime — no contracts or lock-in",
+  "Cancel anytime — no contracts",
 ];
 
 export default function GetStartedPage() {
+  const router = useRouter();
   const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
-    businessName: "",
-    businessType: "",
-    message: "",
+    firstName: '',
+    lastName: '',
+    email: '',
+    plan: 'foundation',
+    industry: '',
   });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
+    const params = new URLSearchParams({
+      firstName: formData.firstName,
+      lastName: formData.lastName,
+      email: formData.email,
+      plan: plans.find(p => p.id === formData.plan)?.name || 'Foundation',
+      industry: formData.industry,
+    });
+    router.push(`/onboarding?${params.toString()}`);
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
 
-      {/* Hero Section */}
       <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-orange-50 to-white">
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-5xl sm:text-6xl lg:text-7xl mb-6 text-gray-900">
@@ -81,31 +64,28 @@ export default function GetStartedPage() {
             </span>
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-10">
-            Tell us about your business and we&apos;ll have everything configured and running within 24 hours. No calls, no onboarding sessions — just results.
+            Tell us who you are and choose a plan. We&apos;ll walk you through everything in a quick conversation — no forms, no calls, no onboarding sessions.
           </p>
         </div>
       </section>
 
-      {/* Main Content */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Contact Form */}
             <div>
-              <h2 className="text-3xl mb-6 text-gray-900">Contact Information</h2>
+              <h2 className="text-3xl mb-6 text-gray-900">Let&apos;s Get You Set Up</h2>
               <Card className="border-0 shadow-xl">
                 <CardContent className="p-8">
                   <form onSubmit={handleSubmit} className="space-y-6">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="grid grid-cols-2 gap-4">
                       <div>
                         <Label htmlFor="firstName" className="flex items-center gap-2 mb-2">
-                          <User className="h-4 w-4 text-gray-500" />
+                          <User className="h-4 w-4 text-gray-400" />
                           First Name *
                         </Label>
                         <Input
                           id="firstName"
                           name="firstName"
-                          type="text"
                           required
                           value={formData.firstName}
                           onChange={handleChange}
@@ -115,13 +95,12 @@ export default function GetStartedPage() {
                       </div>
                       <div>
                         <Label htmlFor="lastName" className="flex items-center gap-2 mb-2">
-                          <User className="h-4 w-4 text-gray-500" />
+                          <User className="h-4 w-4 text-gray-400" />
                           Last Name *
                         </Label>
                         <Input
                           id="lastName"
                           name="lastName"
-                          type="text"
                           required
                           value={formData.lastName}
                           onChange={handleChange}
@@ -133,7 +112,7 @@ export default function GetStartedPage() {
 
                     <div>
                       <Label htmlFor="email" className="flex items-center gap-2 mb-2">
-                        <Mail className="h-4 w-4 text-gray-500" />
+                        <Mail className="h-4 w-4 text-gray-400" />
                         Email Address *
                       </Label>
                       <Input
@@ -143,72 +122,41 @@ export default function GetStartedPage() {
                         required
                         value={formData.email}
                         onChange={handleChange}
-                        placeholder="john@company.com"
+                        placeholder="john@yourcompany.com"
                         className="h-12"
                       />
                     </div>
 
                     <div>
-                      <Label htmlFor="phone" className="flex items-center gap-2 mb-2">
-                        <Phone className="h-4 w-4 text-gray-500" />
-                        Phone Number
-                      </Label>
-                      <Input
-                        id="phone"
-                        name="phone"
-                        type="tel"
-                        value={formData.phone}
-                        onChange={handleChange}
-                        placeholder="(555) 123-4567"
-                        className="h-12"
-                      />
-                    </div>
-
-                    <div>
-                      <Label htmlFor="businessName" className="flex items-center gap-2 mb-2">
-                        <Building2 className="h-4 w-4 text-gray-500" />
-                        Business Name *
-                      </Label>
-                      <Input
-                        id="businessName"
-                        name="businessName"
-                        type="text"
-                        required
-                        value={formData.businessName}
-                        onChange={handleChange}
-                        placeholder="Acme Services Inc."
-                        className="h-12"
-                      />
-                    </div>
-
-                    <div>
-                      <Label htmlFor="businessType" className="mb-2 block">
-                        Type of Business *
-                      </Label>
-                      <Input
-                        id="businessType"
-                        name="businessType"
-                        type="text"
-                        required
-                        value={formData.businessType}
-                        onChange={handleChange}
-                        placeholder="e.g., Pest Control, Lawn Care, HVAC, Pool Maintenance"
-                        className="h-12"
-                      />
-                    </div>
-
-                    <div>
-                      <Label htmlFor="message" className="mb-2 block">
-                        What are your biggest operational challenges? (Optional)
-                      </Label>
-                      <Textarea
-                        id="message"
-                        name="message"
-                        value={formData.message}
-                        onChange={handleChange}
-                        placeholder="e.g., Missing calls on jobs, chasing invoices, not enough reviews..."
-                        rows={4}
-                      />
+                      <Label className="mb-3 block">Choose Your Plan *</Label>
+                      <div className="space-y-3">
+                        {plans.map(plan => (
+                          <label
+                            key={plan.id}
+                            className={`flex items-center justify-between p-4 rounded-xl border-2 cursor-pointer transition-all ${
+                              formData.plan === plan.id
+                                ? 'border-orange-500 bg-orange-50'
+                                : 'border-gray-200 hover:border-gray-300'
+                            }`}
+                          >
+                            <div className="flex items-center gap-3">
+                              <input
+                                type="radio"
+                                name="plan"
+                                value={plan.id}
+                                checked={formData.plan === plan.id}
+                                onChange={handleChange}
+                                className="accent-orange-500"
+                              />
+                              <div>
+                                <div className="font-medium text-gray-900">{plan.name}</div>
+                                <div className="text-sm text-gray-500">{plan.description}</div>
+                              </div>
+                            </div>
+                            <span className="text-gray-700 font-medium text-sm">{plan.price}</span>
+                          </label>
+                        ))}
+                      </div>
                     </div>
 
                     <Button
@@ -216,33 +164,36 @@ export default function GetStartedPage() {
                       size="lg"
                       className="w-full bg-orange-500 hover:bg-orange-600 h-14 text-lg"
                     >
-                      Get Started
+                      Continue to Setup
                       <ArrowRight className="ml-2 h-5 w-5" />
                     </Button>
 
-                    <p className="text-sm text-gray-600 text-center">
-                      By submitting this form, you agree to our Terms of Service and Privacy Policy.
+                    <p className="text-sm text-gray-500 text-center">
+                      You&apos;ll walk through a quick conversation to set everything up. Takes about 15 minutes.
                     </p>
                   </form>
                 </CardContent>
               </Card>
             </div>
 
-            {/* What to Expect */}
             <div>
               <h2 className="text-3xl mb-6 text-gray-900">What Happens Next?</h2>
-
-              <div className="space-y-6 mb-8">
-                {onboardingSteps.map((item, index) => (
-                  <Card key={index} className="border-0 shadow-md">
-                    <CardContent className="p-6">
+              <div className="space-y-4 mb-8">
+                {[
+                  { step: 1, title: "A quick conversation", description: "Our AI walks you through your business in about 15 minutes — no forms, just talking." },
+                  { step: 2, title: "We configure everything", description: "Based on your answers, we set up lead capture, scheduling, invoicing, reviews, and SEO automatically." },
+                  { step: 3, title: "Live within 24 hours", description: "Every lead gets a response. Every review gets managed. You get a weekly report." },
+                  { step: 4, title: "Watch your business grow", description: "Sit back. We send you a weekly digest of what happened — leads captured, reviews managed, revenue recovered." },
+                ].map((item) => (
+                  <Card key={item.step} className="border-0 shadow-md">
+                    <CardContent className="p-5">
                       <div className="flex items-start gap-4">
-                        <div className="w-10 h-10 rounded-full bg-orange-500 flex items-center justify-center text-white flex-shrink-0">
+                        <div className="w-9 h-9 rounded-full bg-orange-500 flex items-center justify-center text-white text-sm flex-shrink-0">
                           {item.step}
                         </div>
                         <div>
-                          <h4 className="text-lg mb-1 text-gray-900">{item.title}</h4>
-                          <p className="text-gray-600">{item.description}</p>
+                          <h4 className="font-medium text-gray-900 mb-1">{item.title}</h4>
+                          <p className="text-gray-600 text-sm">{item.description}</p>
                         </div>
                       </div>
                     </CardContent>
@@ -252,54 +203,17 @@ export default function GetStartedPage() {
 
               <Card className="border-0 shadow-lg bg-gradient-to-br from-orange-50 to-orange-100">
                 <CardContent className="p-8">
-                  <h3 className="text-2xl mb-6 text-gray-900">What&apos;s Included</h3>
-                  <ul className="space-y-3">
+                  <h3 className="text-xl mb-4 text-gray-900">What&apos;s Included</h3>
+                  <ul className="space-y-2">
                     {benefits.map((benefit, index) => (
-                      <li key={index} className="flex items-start text-gray-700">
-                        <CheckCircle2 className="h-5 w-5 text-green-500 mr-3 flex-shrink-0 mt-0.5" />
+                      <li key={index} className="flex items-start text-gray-700 text-sm">
+                        <CheckCircle2 className="h-4 w-4 text-green-500 mr-3 flex-shrink-0 mt-0.5" />
                         <span>{benefit}</span>
                       </li>
                     ))}
                   </ul>
                 </CardContent>
               </Card>
-
-              <div className="mt-8 text-center">
-                <p className="text-gray-600 mb-4">Have questions first?</p>
-                <Link href="/pricing">
-                  <Button variant="outline" size="lg" className="mr-4">
-                    View Pricing
-                  </Button>
-                </Link>
-                <Link href="/how-it-works">
-                  <Button variant="outline" size="lg">
-                    Learn More
-                  </Button>
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Trust Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl mb-8 text-gray-900">
-            Why Service Businesses Choose Autumn8
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div>
-              <div className="text-4xl mb-3 text-orange-600">&lt; 60s</div>
-              <div className="text-gray-600">Lead response time</div>
-            </div>
-            <div>
-              <div className="text-4xl mb-3 text-slate-600">3-5×</div>
-              <div className="text-gray-600">Average client ROI</div>
-            </div>
-            <div>
-              <div className="text-4xl mb-3 text-green-600">90 Day</div>
-              <div className="text-gray-600">Performance guarantee</div>
             </div>
           </div>
         </div>
