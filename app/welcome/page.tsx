@@ -9,7 +9,7 @@ export default function WelcomePage() {
           Welcome to Autumn8
         </h1>
         <p className="text-text-secondary text-lg mb-8 leading-relaxed">
-          Your 14-day free trial has started. Check your inbox — we&apos;ll send onboarding instructions within the hour, and your operations will be live within 48 hours.
+          You&apos;re all set. Check your inbox — we&apos;ll send onboarding instructions within the hour, and your operations will be live within 48 hours.
         </p>
         <div className="bg-surface border border-border rounded-xl p-6 mb-8 text-left space-y-3">
           <p className="text-text-secondary text-sm font-semibold text-text-primary">What happens next:</p>

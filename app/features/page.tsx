@@ -156,7 +156,7 @@ export default function FeaturesPage() {
             Ready to Let Us Run Your Operations?
           </h2>
           <p className="text-xl text-gray-600 mb-8">
-            Start your 14-day free trial. We set everything up within 24 hours.
+            Get started today. We set everything up within 24 hours.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/get-started">
@@ -164,7 +164,7 @@ export default function FeaturesPage() {
                 size="lg"
                 className="bg-orange-500 hover:bg-orange-600 text-lg px-8 h-14"
               >
-                Start Free Trial
+                Get Started
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>

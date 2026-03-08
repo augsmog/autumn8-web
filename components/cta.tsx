@@ -10,7 +10,7 @@ export function CTA() {
           Ready to Stop Doing Everything Yourself?
         </h2>
         <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
-          Start your 14-day free trial. We&apos;ll set everything up and your business starts growing within 24 hours.
+          Get started today. We&apos;ll set everything up and your business starts growing within 24 hours.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Link href="/get-started">
@@ -18,7 +18,7 @@ export function CTA() {
               size="lg"
               className="bg-orange-500 hover:bg-orange-600 text-white text-lg px-8 h-14"
             >
-              Start Free Trial
+              Get Started
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
           </Link>

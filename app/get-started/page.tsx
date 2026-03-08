@@ -36,7 +36,7 @@ const onboardingSteps = [
 
 const benefits = [
   "Full setup completed within 24 hours",
-  "14-day free trial — no credit card required",
+  "No setup fees — get running in 24 hours",
   "90-day performance guarantee",
   "Weekly performance reports from day one",
   "All Foundation features included in every plan",
@@ -74,10 +74,10 @@ export default function GetStartedPage() {
       <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-orange-50 to-white">
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-5xl sm:text-6xl lg:text-7xl mb-6 text-gray-900">
-            Start Your
+            Get Started
             <br />
             <span className="bg-gradient-to-r from-slate-700 to-orange-500 bg-clip-text text-transparent">
-              Free Trial
+              Today
             </span>
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-10">
@@ -216,7 +216,7 @@ export default function GetStartedPage() {
                       size="lg"
                       className="w-full bg-orange-500 hover:bg-orange-600 h-14 text-lg"
                     >
-                      Start Free Trial
+                      Get Started
                       <ArrowRight className="ml-2 h-5 w-5" />
                     </Button>
 

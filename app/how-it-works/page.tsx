@@ -170,7 +170,7 @@ export default function HowItWorksPage() {
             Ready to Let Us Take Over?
           </h2>
           <p className="text-xl text-gray-600 mb-8">
-            Start your 14-day free trial and watch your business grow.
+            Get started today and watch your business grow.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/get-started">
@@ -178,7 +178,7 @@ export default function HowItWorksPage() {
                 size="lg"
                 className="bg-orange-500 hover:bg-orange-600 text-lg px-8 h-14"
               >
-                Start Free Trial
+                Get Started
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>

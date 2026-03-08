@@ -70,7 +70,7 @@ export default function PricingPage() {
         "Local SEO & Web Presence",
         "Referral Program Automation",
       ],
-      cta: "Start Free Trial",
+      cta: "Get Started",
     },
     {
       name: "Growth",
@@ -84,7 +84,7 @@ export default function PricingPage() {
         "Seasonal Demand Planning",
       ],
       highlighted: true,
-      cta: "Start Free Trial",
+      cta: "Get Started",
     },
     {
       name: "Scale",
@@ -97,7 +97,7 @@ export default function PricingPage() {
         "Job Costing & Profitability Analysis",
         "Competitive Pricing Intelligence",
       ],
-      cta: "Start Free Trial",
+      cta: "Get Started",
     },
   ];
 
@@ -286,14 +286,14 @@ export default function PricingPage() {
             Ready to Stop Doing Everything Yourself?
           </h2>
           <p className="text-xl text-gray-600 mb-8">
-            Start your 14-day free trial. We set everything up within 24 hours.
+            Get started today. We set everything up within 24 hours.
           </p>
           <Link href="/get-started">
             <Button
               size="lg"
               className="bg-orange-500 hover:bg-orange-600 text-lg px-8 h-14"
             >
-              Start Free Trial
+              Get Started
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
           </Link>

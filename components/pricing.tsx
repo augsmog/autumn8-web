@@ -34,7 +34,7 @@ export function Pricing() {
         "Local SEO & Web Presence",
         "Referral Program Automation",
       ],
-      cta: "Start Free Trial",
+      cta: "Get Started",
       highlighted: false,
     },
     {
@@ -49,7 +49,7 @@ export function Pricing() {
         "Customer Win-Back & Churn Prevention",
         "Seasonal Demand Planning",
       ],
-      cta: "Start Free Trial",
+      cta: "Get Started",
       highlighted: true,
     },
     {
@@ -64,7 +64,7 @@ export function Pricing() {
         "Job Costing & Profitability Analysis",
         "Competitive Pricing Intelligence",
       ],
-      cta: "Start Free Trial",
+      cta: "Get Started",
       highlighted: false,
     },
   ];
@@ -164,7 +164,7 @@ export function Pricing() {
         </div>
 
         <div className="mt-12 text-center text-gray-600">
-          <p>All plans include a 14-day free trial. No credit card required. 90-day performance guarantee.</p>
+          <p>All plans include a 90-day performance guarantee. No long-term contracts. Cancel anytime.</p>
         </div>
       </div>
     </section>
