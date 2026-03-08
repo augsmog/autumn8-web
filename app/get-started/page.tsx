@@ -15,32 +15,32 @@ const onboardingSteps = [
   {
     step: 1,
     title: "Tell Us About Your Business",
-    description: "Share basic information so we can customize your experience",
+    description: "Quick 5-minute form about your services, customers, and goals",
   },
   {
     step: 2,
-    title: "Connect Your Tools",
-    description: "Link the business apps you currently use",
+    title: "We Set Everything Up",
+    description: "Lead capture, scheduling, invoicing, reviews, and SEO — configured automatically",
   },
   {
     step: 3,
-    title: "Choose Your Workflows",
-    description: "Select pre-built automations or create custom ones",
+    title: "Your Automation Goes Live",
+    description: "Within 24 hours, every lead gets a response and every review gets managed",
   },
   {
     step: 4,
-    title: "Go Live",
-    description: "Activate your automations and start saving time",
+    title: "Watch Your Business Grow",
+    description: "Weekly reports show leads, reviews, and revenue — all handled automatically",
   },
 ];
 
 const benefits = [
-  "Setup assistance from our team",
-  "Custom workflow recommendations",
-  "Training and documentation",
-  "Ongoing email support",
-  "Access to all core features",
-  "Cancel anytime—no lock-in",
+  "Full setup completed within 24 hours",
+  "14-day free trial — no credit card required",
+  "90-day performance guarantee",
+  "Weekly performance reports from day one",
+  "All Foundation features included in every plan",
+  "Cancel anytime — no contracts or lock-in",
 ];
 
 export default function GetStartedPage() {
@@ -74,15 +74,14 @@ export default function GetStartedPage() {
       <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-orange-50 to-white">
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-5xl sm:text-6xl lg:text-7xl mb-6 text-gray-900">
-            Let&apos;s Get You
+            Start Your
             <br />
             <span className="bg-gradient-to-r from-slate-700 to-orange-500 bg-clip-text text-transparent">
-              Started Today
+              Free Trial
             </span>
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-10">
-            Fill out the form below and we&apos;ll reach out within 24 hours to help you get set up
-            and start automating your business operations.
+            Tell us about your business and we&apos;ll have everything configured and running within 24 hours. No calls, no onboarding sessions — just results.
           </p>
         </div>
       </section>
@@ -193,21 +192,21 @@ export default function GetStartedPage() {
                         required
                         value={formData.businessType}
                         onChange={handleChange}
-                        placeholder="e.g., Consulting, Legal Services, Accounting"
+                        placeholder="e.g., Pest Control, Lawn Care, HVAC, Pool Maintenance"
                         className="h-12"
                       />
                     </div>
 
                     <div>
                       <Label htmlFor="message" className="mb-2 block">
-                        What are your biggest administrative challenges? (Optional)
+                        What are your biggest operational challenges? (Optional)
                       </Label>
                       <Textarea
                         id="message"
                         name="message"
                         value={formData.message}
                         onChange={handleChange}
-                        placeholder="Tell us about your current pain points..."
+                        placeholder="e.g., Missing calls on jobs, chasing invoices, not enough reviews..."
                         rows={4}
                       />
                     </div>
@@ -217,7 +216,7 @@ export default function GetStartedPage() {
                       size="lg"
                       className="w-full bg-orange-500 hover:bg-orange-600 h-14 text-lg"
                     >
-                      Submit Request
+                      Start Free Trial
                       <ArrowRight className="ml-2 h-5 w-5" />
                     </Button>
 
@@ -287,20 +286,20 @@ export default function GetStartedPage() {
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl mb-8 text-gray-900">
-            Why Small Service Businesses Choose Autumn8
+            Why Service Businesses Choose Autumn8
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
-              <div className="text-4xl mb-3 text-orange-600">20-25 hrs</div>
-              <div className="text-gray-600">Average weekly time saved</div>
+              <div className="text-4xl mb-3 text-orange-600">&lt; 60s</div>
+              <div className="text-gray-600">Lead response time</div>
             </div>
             <div>
-              <div className="text-4xl mb-3 text-slate-600">5-10x</div>
-              <div className="text-gray-600">Expected ROI</div>
+              <div className="text-4xl mb-3 text-slate-600">3-5×</div>
+              <div className="text-gray-600">Average client ROI</div>
             </div>
             <div>
-              <div className="text-4xl mb-3 text-green-600">40%</div>
-              <div className="text-gray-600">Faster payment collection</div>
+              <div className="text-4xl mb-3 text-green-600">90 Day</div>
+              <div className="text-gray-600">Performance guarantee</div>
             </div>
           </div>
         </div>

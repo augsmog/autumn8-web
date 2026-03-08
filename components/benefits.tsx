@@ -4,35 +4,35 @@ import { TrendingUp, DollarSign, Clock, Target } from "lucide-react";
 const benefits = [
   {
     icon: Clock,
-    stat: "20-25 hours",
-    period: "saved weekly",
-    title: "Reclaim Your Time",
-    description: "Stop drowning in administrative tasks. The average small service business spends 50-60% of their week on admin work. We cut that to less than 10 hours.",
-    calculation: "At $50/hour, that's $1,000-$1,250 back in your pocket every week",
+    stat: "Under 60s",
+    period: "lead response time",
+    title: "Never Miss a Lead Again",
+    description: "Every new inquiry gets an instant SMS response, even when you're on a job. The average service business misses 62% of calls — Autumn8 catches every single one.",
+    calculation: "78% of customers hire the first company to respond",
   },
   {
     icon: DollarSign,
-    stat: "$24k-$48k",
-    period: "annual value",
-    title: "Increase Revenue Capacity",
-    description: "Those recovered hours can be spent on billable work, business development, or improving service quality—activities that directly generate revenue.",
-    calculation: "20 hours weekly × $25-40/hour × 48 working weeks",
+    stat: "52-65%",
+    period: "revenue increase",
+    title: "Grow Revenue Automatically",
+    description: "More leads contacted, faster follow-ups, automated review collection, and recurring revenue conversion. Our clients see meaningful revenue growth within 90 days.",
+    calculation: "Based on projected 90-day performance across service business clients",
   },
   {
     icon: TrendingUp,
-    stat: "5-10x ROI",
+    stat: "3-5× ROI",
     period: "return on investment",
-    title: "Maximize Your Investment",
-    description: "Our automation platform pays for itself many times over. Most clients see full ROI within the first month as time savings immediately translate to increased capacity.",
-    calculation: "Monthly value ($2k-4k) vs. subscription cost = exceptional ROI",
+    title: "Pays for Itself Immediately",
+    description: "The combination of captured leads, faster payments, and increased reviews generates multiples of your monthly subscription in new revenue.",
+    calculation: "Foundation plan at $249/mo typically generates $800-$1,200/mo in recovered revenue",
   },
   {
     icon: Target,
-    stat: "40% faster",
-    period: "payment collection",
-    title: "Improve Cash Flow",
-    description: "Automated invoicing and follow-ups mean you get paid faster. No more chasing clients or forgetting to send invoices—everything happens automatically.",
-    calculation: "Reduce average payment time from 45 days to 27 days",
+    stat: "4.6-4.8★",
+    period: "average client rating",
+    title: "Build a Reputation That Wins",
+    description: "Automated review requests after every service, AI-drafted responses posted to Google and Yelp, and negative reviews flagged instantly for your personal attention.",
+    calculation: "Clients typically gain 2-4 new reviews per month with automated collection",
   },
 ];
 
@@ -42,14 +42,13 @@ export function Benefits() {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-sm uppercase tracking-wide text-orange-600 mb-3">
-            Expected Benefits
+            Results
           </h2>
           <h3 className="text-4xl sm:text-5xl mb-4 text-gray-900">
-            The True Cost of Manual Admin
+            What Happens When We Take Over
           </h3>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Every hour spent on scheduling, invoicing, and data entry is an hour not spent growing your business.
-            Here&apos;s what automation can unlock for you.
+            While you focus on delivering great service, Autumn8 actively fills your calendar, grows your reviews, and increases your revenue.
           </p>
         </div>
 
@@ -82,7 +81,7 @@ export function Benefits() {
           })}
         </div>
 
-        {/* Bottom ROI Calculator Summary */}
+        {/* Bottom ROI Summary */}
         <div className="bg-gradient-to-r from-slate-700 to-slate-900 rounded-2xl p-8 md:p-12 text-white">
           <div className="text-center max-w-4xl mx-auto">
             <h4 className="text-3xl mb-4">
@@ -90,20 +89,20 @@ export function Benefits() {
             </h4>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
               <div>
-                <div className="text-5xl mb-2">$24k-$48k</div>
-                <div className="text-gray-300">Annual Value of Time Saved</div>
+                <div className="text-5xl mb-2">3-5×</div>
+                <div className="text-gray-300">Average Client ROI</div>
               </div>
               <div>
-                <div className="text-5xl mb-2">1,000+</div>
-                <div className="text-gray-300">Hours Reclaimed Annually</div>
+                <div className="text-5xl mb-2">Under 5 min</div>
+                <div className="text-gray-300">Average Lead Response Time</div>
               </div>
               <div>
-                <div className="text-5xl mb-2">∞</div>
-                <div className="text-gray-300">Eliminated Human Errors</div>
+                <div className="text-5xl mb-2">90 Days</div>
+                <div className="text-gray-300">Performance Guarantee</div>
               </div>
             </div>
             <p className="mt-8 text-lg text-gray-300">
-              These aren&apos;t just numbers—this is real business growth potential waiting to be unlocked.
+              We don&apos;t just automate tasks — we actively run your operations and grow your business.
             </p>
           </div>
         </div>

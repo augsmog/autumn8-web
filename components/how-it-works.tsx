@@ -3,18 +3,18 @@ import { CheckCircle2 } from "lucide-react";
 const steps = [
   {
     number: "01",
-    title: "Connect Your Tools",
-    description: "Link your existing calendar, email, CRM, and accounting software in minutes. We integrate with all major platforms.",
+    title: "Sign Up & Tell Us About Your Business",
+    description: "Pick your plan and complete a quick 5-minute form about your services, customers, and goals.",
   },
   {
     number: "02",
-    title: "Customize Automations",
-    description: "Choose from pre-built workflows or create custom automation rules that match your business processes perfectly.",
+    title: "We Configure Everything Automatically",
+    description: "Your lead capture, scheduling, invoicing, review management, SEO, and reporting — all set up and running within 24 hours.",
   },
   {
     number: "03",
-    title: "Watch It Work",
-    description: "Sit back and watch as repetitive tasks happen automatically. Monitor everything from your dashboard in real-time.",
+    title: "Your Business Starts Growing",
+    description: "Leads get responded to instantly. Reviews get managed. Revenue grows. You get a weekly report showing exactly what happened.",
   },
 ];
 
@@ -27,10 +27,10 @@ export function HowItWorks() {
             How It Works
           </h2>
           <h3 className="text-4xl sm:text-5xl mb-4 text-gray-900">
-            Get Started in Minutes
+            Up and Running in Under 24 Hours
           </h3>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Simple setup, powerful results. No technical expertise required.
+            No software to learn. No calls to schedule. We set everything up for you.
           </p>
         </div>
 
@@ -58,47 +58,47 @@ export function HowItWorks() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             <div>
               <h4 className="text-3xl mb-4 text-gray-900">
-                The Real Impact on Your Business
+                What You Can Expect
               </h4>
               <p className="text-lg text-gray-600 mb-6">
-                Administrative automation isn&apos;t just about saving time—it&apos;s about unlocking revenue potential and improving your bottom line.
+                Autumn8 doesn&apos;t just save you time — it actively generates revenue, builds your reputation, and grows your business while you focus on service.
               </p>
               <ul className="space-y-3">
                 <li className="flex items-center text-gray-700">
                   <CheckCircle2 className="h-5 w-5 text-green-500 mr-3 flex-shrink-0" />
-                  <span>Save 20-25 hours per week on repetitive admin tasks</span>
+                  <span>Every lead gets a response in under 60 seconds — even while you&apos;re on a job</span>
                 </li>
                 <li className="flex items-center text-gray-700">
                   <CheckCircle2 className="h-5 w-5 text-green-500 mr-3 flex-shrink-0" />
-                  <span>Reduce billing cycles by 40% with instant invoicing</span>
+                  <span>Reviews collected and responded to automatically — your rating climbs monthly</span>
                 </li>
                 <li className="flex items-center text-gray-700">
                   <CheckCircle2 className="h-5 w-5 text-green-500 mr-3 flex-shrink-0" />
-                  <span>Eliminate missed follow-ups and lost revenue opportunities</span>
+                  <span>Invoices sent and payments collected without you touching a thing</span>
                 </li>
               </ul>
             </div>
             <div className="grid grid-cols-2 gap-6">
               <div className="bg-white rounded-xl p-6 shadow-md">
-                <div className="text-4xl mb-2 text-orange-600">20-25</div>
-                <div className="text-sm text-gray-600">Hours saved weekly</div>
+                <div className="text-4xl mb-2 text-orange-600">&lt; 60s</div>
+                <div className="text-sm text-gray-600">Lead response time</div>
               </div>
               <div className="bg-white rounded-xl p-6 shadow-md">
-                <div className="text-4xl mb-2 text-slate-600">$2-4k</div>
-                <div className="text-sm text-gray-600">Value per month*</div>
-              </div>
-              <div className="bg-white rounded-xl p-6 shadow-md">
-                <div className="text-4xl mb-2 text-green-600">5-10x</div>
+                <div className="text-4xl mb-2 text-slate-600">3-5×</div>
                 <div className="text-sm text-gray-600">Expected ROI</div>
               </div>
               <div className="bg-white rounded-xl p-6 shadow-md">
-                <div className="text-4xl mb-2 text-orange-600">40%</div>
-                <div className="text-sm text-gray-600">Faster payments</div>
+                <div className="text-4xl mb-2 text-green-600">90 Day</div>
+                <div className="text-sm text-gray-600">Performance guarantee</div>
+              </div>
+              <div className="bg-white rounded-xl p-6 shadow-md">
+                <div className="text-4xl mb-2 text-orange-600">24 hrs</div>
+                <div className="text-sm text-gray-600">Full setup time</div>
               </div>
             </div>
           </div>
           <p className="mt-6 text-sm text-gray-500 text-center">
-            *Based on 20-25 hours saved weekly at $25-40/hour billing rate
+            Results based on projected 90-day performance models. Individual results vary.
           </p>
         </div>
       </div>

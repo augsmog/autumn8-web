@@ -8,80 +8,80 @@ import Link from "next/link";
 const features = [
   {
     icon: Calendar,
-    title: "Smart Scheduling",
-    description: "Automated appointment booking and calendar management that syncs across all your tools.",
+    title: "Customer Acquisition Engine",
+    description: "Speed-to-lead SMS in under 60 seconds. Automated follow-ups that fill your calendar.",
     color: "bg-blue-100 text-blue-600",
     details: [
-      "Two-way calendar sync with Google, Outlook, and Apple Calendar",
-      "Automated appointment reminders via email and SMS",
-      "Client self-scheduling with customizable availability",
-      "Buffer time management between appointments",
-      "Recurring appointment automation",
+      "Instant SMS response to every new lead within 60 seconds",
+      "Automated follow-up sequences via email and text",
+      "Lead qualification based on service area and type",
+      "Direct calendar routing for qualified leads",
+      "Missed call text-back so no inquiry goes unanswered",
     ],
   },
   {
     icon: FileText,
-    title: "Invoice Automation",
-    description: "Generate, send, and track invoices automatically. Get paid faster with automated reminders.",
+    title: "Automated Invoicing",
+    description: "Invoices generated and sent automatically after every job. Payments collected without chasing.",
     color: "bg-purple-100 text-purple-600",
     details: [
-      "Automatic invoice generation from completed work",
-      "Customizable invoice templates and branding",
-      "Automated payment reminders and follow-ups",
-      "Integration with QuickBooks, Xero, and FreshBooks",
-      "Payment tracking and reconciliation",
+      "Automatic invoice generation after job completion",
+      "Payment reminders at 3, 7, and 14 days",
+      "Stripe integration for instant online payments",
+      "Overdue payment escalation sequences",
+      "Revenue tracking and reporting in your dashboard",
     ],
   },
   {
     icon: Mail,
-    title: "Email Follow-ups",
-    description: "Never miss a follow-up. Automated email sequences that nurture leads and keep clients engaged.",
+    title: "Reputation Management",
+    description: "Reviews collected and responded to automatically. Your rating climbs monthly.",
     color: "bg-green-100 text-green-600",
     details: [
-      "Customizable email templates for every scenario",
-      "Automated drip campaigns for lead nurturing",
-      "Follow-up sequences after appointments or quotes",
-      "Smart timing based on client behavior",
-      "A/B testing for email optimization",
+      "Automated review requests after every completed service",
+      "AI-drafted responses posted to Google and Yelp",
+      "Negative review detection with instant owner alerts",
+      "Review sentiment analysis and trend tracking",
+      "Monthly reputation report in your dashboard",
     ],
   },
   {
     icon: Database,
-    title: "Data Entry",
-    description: "Eliminate manual data entry. Auto-sync information across your CRM, accounting, and other tools.",
+    title: "Local SEO & Web Presence",
+    description: "Google Business Profile managed weekly. Local citations built. Rankings tracked.",
     color: "bg-orange-100 text-orange-600",
     details: [
-      "Automatic data synchronization across platforms",
-      "OCR for document and receipt scanning",
-      "Form data auto-population",
-      "Duplicate detection and merging",
-      "Custom field mapping and transformations",
+      "Weekly Google Business Profile posts and updates",
+      "Local citation building across 40+ directories",
+      "Keyword ranking tracking and monthly reports",
+      "GBP category and attribute optimization",
+      "Photo uploads and Q&A management",
     ],
   },
   {
     icon: Clock,
-    title: "Time Tracking",
-    description: "Automatically log billable hours and generate accurate time reports for your clients.",
+    title: "Smart Scheduling",
+    description: "Online booking with automated confirmations and reminders. No more no-shows.",
     color: "bg-pink-100 text-pink-600",
     details: [
-      "Automatic time tracking for all activities",
-      "Project-based time allocation",
-      "Billable vs non-billable hour categorization",
-      "Automated timesheet generation",
-      "Integration with invoicing for accurate billing",
+      "Online booking widget for your website and GBP",
+      "Automated appointment confirmations via email and SMS",
+      "24-hour and 1-hour reminders before every appointment",
+      "Rescheduling handled automatically when customers reply",
+      "Calendar sync so your team always knows the schedule",
     ],
   },
   {
     icon: Zap,
-    title: "Workflow Builder",
-    description: "Create custom automated workflows tailored to your unique business processes.",
+    title: "Referral Program Automation",
+    description: "Happy customers become your sales team with automated referral offers and tracking.",
     color: "bg-indigo-100 text-indigo-600",
     details: [
-      "Visual workflow designer with drag-and-drop interface",
-      "Pre-built templates for common business scenarios",
-      "Conditional logic and branching",
-      "Multi-step automation sequences",
-      "Real-time monitoring and error handling",
+      "Automatic referral requests sent after positive reviews",
+      "Unique referral codes and tracking links per customer",
+      "Automated reward fulfillment when referrals convert",
+      "Monthly referral leaderboard and performance reports",
+      "Customizable reward tiers based on referral volume",
     ],
   },
 ];
@@ -95,15 +95,14 @@ export default function FeaturesPage() {
       <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-orange-50 to-white">
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-5xl sm:text-6xl lg:text-7xl mb-6 text-gray-900">
-            Powerful Features for
+            12 Capabilities That
             <br />
             <span className="bg-gradient-to-r from-slate-700 to-orange-500 bg-clip-text text-transparent">
-              Complete Automation
+              Run Your Business
             </span>
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-10">
-            Everything you need to automate your administrative tasks and focus on growing your business.
-            No technical expertise required—just powerful automation that works.
+            From lead capture to competitive pricing intelligence — everything a service business needs to grow, managed automatically across three tiers.
           </p>
         </div>
       </section>
@@ -154,10 +153,10 @@ export default function FeaturesPage() {
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-blue-50">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl sm:text-5xl mb-6 text-gray-900">
-            Ready to Automate Your Business?
+            Ready to Let Us Run Your Operations?
           </h2>
           <p className="text-xl text-gray-600 mb-8">
-            Start streamlining your operations today and reclaim hours every week.
+            Start your 14-day free trial. We set everything up within 24 hours.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/get-started">
@@ -165,7 +164,7 @@ export default function FeaturesPage() {
                 size="lg"
                 className="bg-orange-500 hover:bg-orange-600 text-lg px-8 h-14"
               >
-                Get Started
+                Start Free Trial
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>

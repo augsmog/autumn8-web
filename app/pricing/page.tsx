@@ -1,3 +1,6 @@
+'use client';
+
+import { useState } from "react";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { Button } from "@/components/ui/button";
@@ -15,89 +18,89 @@ interface PricingTier {
   cta: string;
 }
 
-const pricingTiers: PricingTier[] = [
-  {
-    name: "Starter",
-    price: "$99",
-    period: "/month",
-    description: "Perfect for solopreneurs and small service businesses just getting started with automation.",
-    features: [
-      "Up to 500 automated tasks per month",
-      "5 tool integrations",
-      "Basic workflow templates",
-      "Email support",
-      "Dashboard and reporting",
-      "Data sync every 15 minutes",
-    ],
-    cta: "Get Started",
-  },
-  {
-    name: "Professional",
-    price: "$249",
-    period: "/month",
-    description: "Ideal for growing businesses that need advanced automation and priority support.",
-    features: [
-      "Up to 2,500 automated tasks per month",
-      "15 tool integrations",
-      "Advanced workflow builder",
-      "Priority email & chat support",
-      "Custom branded client portal",
-      "Data sync every 5 minutes",
-      "Advanced analytics and reporting",
-      "Team collaboration (up to 5 users)",
-    ],
-    highlighted: true,
-    cta: "Get Started",
-  },
-  {
-    name: "Enterprise",
-    price: "Custom",
-    period: "pricing",
-    description: "For established businesses requiring unlimited automation, dedicated support, and custom solutions.",
-    features: [
-      "Unlimited automated tasks",
-      "Unlimited tool integrations",
-      "Custom workflow development",
-      "Dedicated account manager",
-      "Phone, email, and chat support",
-      "Real-time data synchronization",
-      "White-label options",
-      "Unlimited team members",
-      "Custom API access",
-      "SLA guarantees",
-    ],
-    cta: "Contact Sales",
-  },
-];
-
 const faqs = [
   {
-    question: "Can I change plans later?",
-    answer: "Yes! You can upgrade or downgrade your plan at any time. Changes take effect immediately, and we'll prorate any charges.",
+    question: "What exactly does Autumn8 do?",
+    answer: "We manage your business operations — leads, scheduling, invoicing, reviews, and reporting — using automation. Think of us as your operations department, powered by technology. You don't need to learn any software or change how you work.",
   },
   {
-    question: "What happens if I exceed my task limit?",
-    answer: "We'll notify you when you approach your limit. You can either upgrade to a higher tier or purchase additional task packs as needed.",
+    question: "How is this different from hiring a marketing agency?",
+    answer: "Agencies sell you hours and campaigns. We manage your actual operations. When a lead comes in, we make sure they get a response in under 60 seconds, get booked, get invoiced, and get asked for a review — automatically. We're not running your ads. We're running everything that happens after someone contacts you.",
   },
   {
-    question: "Do you offer discounts for annual billing?",
-    answer: "Yes! Save 20% when you pay annually instead of monthly. Contact us for details.",
+    question: "What industries do you work with?",
+    answer: "We work with home service and field service businesses — pest control, lawn care, pool maintenance, HVAC, plumbing, cleaning, and similar trades. If you run a team that goes out and does service work, Autumn8 is built for you.",
   },
   {
-    question: "What counts as an 'automated task'?",
-    answer: "An automated task is a single action performed by our system, such as sending an email, creating an invoice, or updating a calendar entry.",
+    question: "Do I need to learn new software?",
+    answer: "No. We set everything up and manage it for you. You'll have access to a simple dashboard to see your results, but you'll never need to configure or troubleshoot anything. That's our job.",
   },
   {
-    question: "Is my data secure?",
-    answer: "Absolutely. We use bank-level encryption, secure OAuth authentication, and regular security audits. Your data is always protected.",
+    question: "What's the difference between your tiers?",
+    answer: "Foundation automates your core operations — leads, booking, invoicing, reviews, SEO, and referrals. Growth adds revenue growth tools — converting one-time customers to recurring revenue, preventing churn, and planning for seasonal demand. Scale adds operational intelligence — route optimization, job costing, and competitive pricing benchmarking. Most businesses start with Foundation and upgrade to Growth within 90 days.",
+  },
+  {
+    question: "Is there a discount for paying annually?",
+    answer: "Yes. When you pay annually, you get 2 months free — that's a 17% discount. Foundation drops from $249/month to $207/month ($2,490/year), Growth from $499 to $416/month ($4,990/year), and Scale from $999 to $832/month ($9,990/year). You can switch between monthly and annual billing anytime.",
+  },
+  {
+    question: "What's the 90-Day Performance Guarantee?",
+    answer: "If you don't see measurable improvement in leads, reviews, or revenue within 90 days, we'll refund your last month. No questions asked. We're confident because our systems work, and we're willing to put our money where our mouth is.",
   },
   {
     question: "Can I cancel anytime?",
-    answer: "Yes, you can cancel your subscription at any time. Your service continues until the end of your current billing period.",
+    answer: "Yes. No long-term contracts. We believe if we're delivering value, you'll stay. If we're not, you shouldn't be locked in.",
   },
 ];
 
 export default function PricingPage() {
+  const [billingPeriod, setBillingPeriod] = useState<'monthly' | 'annual'>('monthly');
+
+  const pricingTiers: PricingTier[] = [
+    {
+      name: "Foundation",
+      price: billingPeriod === 'monthly' ? "$249" : "$207",
+      period: billingPeriod === 'monthly' ? "/month" : "/mo, billed annually",
+      description: "Core automation for your entire operation. Perfect for solo operators and small teams.",
+      features: [
+        "Customer Acquisition Engine",
+        "Smart Scheduling System",
+        "Automated Invoicing",
+        "Reputation Management",
+        "Local SEO & Web Presence",
+        "Referral Program Automation",
+      ],
+      cta: "Start Free Trial",
+    },
+    {
+      name: "Growth",
+      price: billingPeriod === 'monthly' ? "$499" : "$416",
+      period: billingPeriod === 'monthly' ? "/month" : "/mo, billed annually",
+      description: "Grow revenue with recurring customers. Ideal for businesses with 5-15 employees.",
+      features: [
+        "Everything in Foundation, plus:",
+        "Recurring Revenue Engine",
+        "Customer Win-Back & Churn Prevention",
+        "Seasonal Demand Planning",
+      ],
+      highlighted: true,
+      cta: "Start Free Trial",
+    },
+    {
+      name: "Scale",
+      price: billingPeriod === 'monthly' ? "$999" : "$832",
+      period: billingPeriod === 'monthly' ? "/month" : "/mo, billed annually",
+      description: "Full operational intelligence for multi-crew operations with 10-25+ employees.",
+      features: [
+        "Everything in Growth, plus:",
+        "Route Optimization & Job Density",
+        "Job Costing & Profitability Analysis",
+        "Competitive Pricing Intelligence",
+      ],
+      cta: "Start Free Trial",
+    },
+  ];
+
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
@@ -112,10 +115,36 @@ export default function PricingPage() {
               Pricing
             </span>
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-10">
-            Choose the plan that fits your business. All plans include core automation features
-            and can be upgraded as you grow.
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+            No contracts. No hidden fees. Cancel anytime. Save 2 months when you pay annually.
           </p>
+
+          <div className="flex items-center justify-center gap-4">
+            <span className={`text-sm font-medium transition-colors ${
+              billingPeriod === 'monthly' ? 'text-gray-900' : 'text-gray-400'
+            }`}>Monthly</span>
+            <button
+              onClick={() => setBillingPeriod(billingPeriod === 'monthly' ? 'annual' : 'monthly')}
+              className={`relative inline-flex h-7 w-14 items-center rounded-full transition-colors ${
+                billingPeriod === 'annual' ? 'bg-orange-500' : 'bg-gray-300'
+              }`}
+              role="switch"
+              aria-checked={billingPeriod === 'annual'}
+              aria-label="Toggle annual billing"
+            >
+              <span className={`inline-block h-5 w-5 transform rounded-full bg-white shadow-sm transition-transform ${
+                billingPeriod === 'annual' ? 'translate-x-8' : 'translate-x-1'
+              }`} />
+            </button>
+            <span className={`text-sm font-medium transition-colors ${
+              billingPeriod === 'annual' ? 'text-gray-900' : 'text-gray-400'
+            }`}>Annual</span>
+            {billingPeriod === 'annual' && (
+              <span className="ml-2 inline-flex items-center rounded-full bg-green-100 px-3 py-1 text-xs font-medium text-green-700">
+                Save 2 months
+              </span>
+            )}
+          </div>
         </div>
       </section>
 
@@ -142,6 +171,11 @@ export default function PricingPage() {
                   <div className="mb-4">
                     <span className="text-5xl text-gray-900">{tier.price}</span>
                     <span className="text-gray-600">{tier.period}</span>
+                    {billingPeriod === 'annual' && (
+                      <div className="text-sm text-gray-500 mt-1">
+                        ${(index === 0 ? 2490 : index === 1 ? 4990 : 9990).toLocaleString()}/year
+                      </div>
+                    )}
                   </div>
                   <p className="text-gray-600">{tier.description}</p>
                 </CardHeader>
@@ -174,15 +208,15 @@ export default function PricingPage() {
         </div>
       </section>
 
-      {/* ROI Calculator Section */}
+      {/* ROI Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-4xl sm:text-5xl mb-4 text-gray-900">
-              Calculate Your ROI
+              What This Means for Your Business
             </h2>
             <p className="text-xl text-gray-600">
-              See how much time and money you could save with Autumn8
+              Here&apos;s what our clients typically see within 90 days
             </p>
           </div>
 
@@ -190,22 +224,22 @@ export default function PricingPage() {
             <CardContent className="p-8">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
                 <div>
-                  <div className="text-4xl mb-2 text-blue-600">20-25 hrs</div>
-                  <div className="text-sm text-gray-600 mb-2">Average Weekly Time Saved</div>
-                  <div className="text-2xl text-gray-900">1,000-1,200</div>
-                  <div className="text-sm text-gray-600">Hours saved annually</div>
+                  <div className="text-4xl mb-2 text-blue-600">52-65%</div>
+                  <div className="text-sm text-gray-600 mb-2">Revenue Increase</div>
+                  <div className="text-2xl text-gray-900">Within 90 days</div>
+                  <div className="text-sm text-gray-600">Based on projected performance</div>
                 </div>
                 <div>
-                  <div className="text-4xl mb-2 text-purple-600">$25-40</div>
-                  <div className="text-sm text-gray-600 mb-2">Your Hourly Billing Rate</div>
-                  <div className="text-2xl text-gray-900">$25,000-$48,000</div>
-                  <div className="text-sm text-gray-600">Annual value of time saved</div>
+                  <div className="text-4xl mb-2 text-purple-600">3-5×</div>
+                  <div className="text-sm text-gray-600 mb-2">Return on Investment</div>
+                  <div className="text-2xl text-gray-900">Foundation plan</div>
+                  <div className="text-sm text-gray-600">Typically generates $800-$1,200/mo in recovered revenue</div>
                 </div>
                 <div>
-                  <div className="text-4xl mb-2 text-green-600">5-10x</div>
-                  <div className="text-sm text-gray-600 mb-2">Expected ROI</div>
-                  <div className="text-2xl text-gray-900">First Month</div>
-                  <div className="text-sm text-gray-600">Typical payback period</div>
+                  <div className="text-4xl mb-2 text-green-600">4.6-4.8★</div>
+                  <div className="text-sm text-gray-600 mb-2">Average Google Rating</div>
+                  <div className="text-2xl text-gray-900">From automated</div>
+                  <div className="text-sm text-gray-600">Review collection and response</div>
                 </div>
               </div>
             </CardContent>
@@ -249,17 +283,17 @@ export default function PricingPage() {
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-blue-50">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl sm:text-5xl mb-6 text-gray-900">
-            Ready to Start Saving Time?
+            Ready to Stop Doing Everything Yourself?
           </h2>
           <p className="text-xl text-gray-600 mb-8">
-            Choose your plan and start automating your business today.
+            Start your 14-day free trial. We set everything up within 24 hours.
           </p>
           <Link href="/get-started">
             <Button
               size="lg"
               className="bg-orange-500 hover:bg-orange-600 text-lg px-8 h-14"
             >
-              Get Started Now
+              Start Free Trial
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
           </Link>

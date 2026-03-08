@@ -53,7 +53,7 @@ export function Navbar() {
             </Link>
             <Link href="/get-started">
               <Button variant="default" className="bg-orange-500 hover:bg-orange-600">
-                Get Started
+                Start Free Trial
               </Button>
             </Link>
           </div>
@@ -102,7 +102,7 @@ export function Navbar() {
             </Link>
             <Link href="/get-started" onClick={() => setIsOpen(false)}>
               <Button className="w-full bg-orange-500 hover:bg-orange-600">
-                Get Started
+                Start Free Trial
               </Button>
             </Link>
           </div>

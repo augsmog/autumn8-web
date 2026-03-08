@@ -11,38 +11,38 @@ interface Feature {
 const features: Feature[] = [
   {
     icon: Calendar,
-    title: "Smart Scheduling",
-    description: "Automated appointment booking and calendar management that syncs across all your tools.",
+    title: "Customer Acquisition Engine",
+    description: "Speed-to-lead SMS in under 60 seconds. Automated follow-ups that fill your calendar while you're on jobs.",
     color: "bg-blue-100 text-blue-600",
   },
   {
     icon: FileText,
-    title: "Invoice Automation",
-    description: "Generate, send, and track invoices automatically. Get paid faster with automated reminders.",
+    title: "Automated Invoicing",
+    description: "Invoices sent automatically after every job. Payment reminders at 3, 7, and 14 days. You get paid without lifting a finger.",
     color: "bg-purple-100 text-purple-600",
   },
   {
     icon: Mail,
-    title: "Email Follow-ups",
-    description: "Never miss a follow-up. Automated email sequences that nurture leads and keep clients engaged.",
+    title: "Reputation Management",
+    description: "Review requests sent after every service. AI-drafted responses posted to Google and Yelp. Your rating climbs monthly.",
     color: "bg-green-100 text-green-600",
   },
   {
     icon: Database,
-    title: "Data Entry",
-    description: "Eliminate manual data entry. Auto-sync information across your CRM, accounting, and other tools.",
+    title: "Local SEO & Web Presence",
+    description: "Google Business Profile optimized weekly with posts, photos, and Q&A. Local citations built. Rankings tracked and reported.",
     color: "bg-orange-100 text-orange-600",
   },
   {
     icon: Clock,
-    title: "Time Tracking",
-    description: "Automatically log billable hours and generate accurate time reports for your clients.",
+    title: "Smart Scheduling",
+    description: "Online booking, automated confirmations, and reminders 24 hours before every appointment. No more no-shows.",
     color: "bg-pink-100 text-pink-600",
   },
   {
     icon: Zap,
-    title: "Workflow Builder",
-    description: "Create custom automated workflows tailored to your unique business processes.",
+    title: "Referral Program",
+    description: "Automatically identify happy customers, send referral offers, track conversions, and fulfill rewards. Your best customers become your sales team.",
     color: "bg-indigo-100 text-indigo-600",
   },
 ];
@@ -59,7 +59,7 @@ export function Features() {
             Everything You Need to Run Your Business
           </h3>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Powerful automation tools designed specifically for small service businesses
+            Managed automation that actively runs your operations — not software you have to learn
           </p>
         </div>
 

@@ -11,7 +11,7 @@ export function Footer() {
               <img src="/logo.png" alt="Autumn8" className="h-16" />
             </Link>
             <p className="text-gray-400 text-sm">
-              Administrative automation for small service businesses. Save time, grow faster.
+              We run your business operations so you can focus on your crews.
             </p>
           </div>
 
@@ -21,7 +21,6 @@ export function Footer() {
               <li><Link href="/features" className="hover:text-white transition-colors">Features</Link></li>
               <li><Link href="/pricing" className="hover:text-white transition-colors">Pricing</Link></li>
               <li><Link href="/how-it-works" className="hover:text-white transition-colors">How It Works</Link></li>
-              <li><a href="#integrations" className="hover:text-white transition-colors">Integrations</a></li>
             </ul>
           </div>
 
@@ -58,7 +57,7 @@ export function Footer() {
             <a href="#github" className="hover:text-white transition-colors">
               <Github className="h-5 w-5" />
             </a>
-            <a href="mailto:hello@autumn8.me" className="hover:text-white transition-colors">
+            <a href="mailto:team@autumn8.me" className="hover:text-white transition-colors">
               <Mail className="h-5 w-5" />
             </a>
           </div>

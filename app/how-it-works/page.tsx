@@ -9,57 +9,53 @@ const steps = [
   {
     number: "01",
     icon: Settings,
-    title: "Connect Your Tools",
-    description: "Link your existing calendar, email, CRM, and accounting software in minutes. We integrate with all major platforms.",
+    title: "Sign Up & Tell Us About Your Business",
+    description: "Pick your plan and fill out a quick 5-minute form about your services, your customers, and your goals.",
     details: [
-      "One-click integrations with popular business tools",
-      "Secure OAuth authentication—we never see your passwords",
-      "Automatic data synchronization",
-      "Support for 100+ business applications",
+      "Choose Foundation, Growth, or Scale based on your needs",
+      "Tell us your industry, service area, and team size",
+      "Share your current online presence and competitors",
+      "Set your goals for the first 90 days",
     ],
-    timeline: "5-10 minutes",
+    timeline: "5 minutes",
   },
   {
     number: "02",
     icon: PlayCircle,
-    title: "Customize Automations",
-    description: "Choose from pre-built workflows or create custom automation rules that match your business processes perfectly.",
+    title: "We Configure Everything Automatically",
+    description: "Your lead capture, scheduling, invoicing, review management, SEO, and reporting — all set up and running within 24 hours.",
     details: [
-      "Library of ready-to-use automation templates",
-      "Visual workflow builder for custom automations",
-      "Smart suggestions based on your business type",
-      "Test automations before going live",
+      "Google Business Profile optimized and connected",
+      "Lead capture forms and speed-to-lead workflows activated",
+      "Review request and response automation enabled",
+      "SEO keywords generated for your industry and location",
     ],
-    timeline: "15-30 minutes",
+    timeline: "Under 24 hours",
   },
   {
     number: "03",
     icon: Rocket,
-    title: "Watch It Work",
-    description: "Sit back and watch as repetitive tasks happen automatically. Monitor everything from your dashboard in real-time.",
+    title: "Your Business Starts Growing",
+    description: "Leads get responded to instantly. Reviews get managed. Revenue grows. You get weekly reports showing exactly what happened.",
     details: [
-      "Real-time dashboard showing all automated activities",
-      "Detailed logs and activity history",
-      "Performance analytics and time savings reports",
-      "Instant notifications for important events",
+      "Weekly performance digest delivered every Monday",
+      "Monthly comprehensive report with ROI analysis",
+      "Real-time dashboard showing leads, reviews, and revenue",
+      "Escalation alerts only when something truly needs your attention",
     ],
     timeline: "Ongoing",
   },
 ];
 
 const integrations = [
-  "Google Workspace",
-  "Microsoft 365",
-  "QuickBooks",
-  "Xero",
-  "FreshBooks",
-  "Salesforce",
-  "HubSpot",
-  "Mailchimp",
-  "Calendly",
-  "Zoom",
-  "Slack",
-  "Stripe",
+  "GoHighLevel CRM",
+  "Stripe Payments",
+  "Twilio SMS & Voice",
+  "Google Business Profile",
+  "Google Maps API",
+  "Resend Email",
+  "Claude AI",
+  "Playwright",
 ];
 
 export default function HowItWorksPage() {
@@ -74,12 +70,11 @@ export default function HowItWorksPage() {
             How Autumn8
             <br />
             <span className="bg-gradient-to-r from-slate-700 to-orange-500 bg-clip-text text-transparent">
-              Works for You
+              Runs Your Business
             </span>
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-10">
-            Get up and running in under an hour. Our simple three-step process gets you from
-            manual chaos to automated efficiency in no time.
+            From signup to fully operational in under 24 hours. No software to learn, no calls to schedule, no onboarding sessions.
           </p>
         </div>
       </section>
@@ -142,10 +137,10 @@ export default function HowItWorksPage() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-4xl sm:text-5xl mb-4 text-gray-900">
-              Integrates with Your Existing Tools
+              Powered by Enterprise-Grade Tools
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Connect seamlessly with the business applications you already use. No need to change your workflow.
+              You don&apos;t manage any of this. We do. Your business runs on proven infrastructure.
             </p>
           </div>
 
@@ -163,7 +158,7 @@ export default function HowItWorksPage() {
           </div>
 
           <p className="text-center text-gray-600 mt-8">
-            + 100 more integrations available
+            All integrations are managed by Autumn8 — you never touch any of this
           </p>
         </div>
       </section>
@@ -172,10 +167,10 @@ export default function HowItWorksPage() {
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-blue-50">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl sm:text-5xl mb-6 text-gray-900">
-            Ready to Get Started?
+            Ready to Let Us Take Over?
           </h2>
           <p className="text-xl text-gray-600 mb-8">
-            Join the automation revolution and start saving 20+ hours every week.
+            Start your 14-day free trial and watch your business grow.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/get-started">
@@ -183,13 +178,13 @@ export default function HowItWorksPage() {
                 size="lg"
                 className="bg-orange-500 hover:bg-orange-600 text-lg px-8 h-14"
               >
-                Get Started Now
+                Start Free Trial
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
-            <Link href="/features">
+            <Link href="/pricing">
               <Button size="lg" variant="outline" className="text-lg px-8 h-14 border-slate-300">
-                Explore Features
+                View Pricing
               </Button>
             </Link>
           </div>
