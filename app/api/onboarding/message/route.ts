@@ -34,24 +34,29 @@ For services: use quickSelect with industry-appropriate options once industry is
 PHASE 3 — ONLINE PRESENCE (45-60%):
 Collect: Google Business Profile (yes/no + URL if yes), website, current review count and rating, other platforms
 
-PHASE 4 — GOALS (60-75%):
+PHASE 4 — BRAND VOICE (60-70%):
+Ask: "One quick question about how you like to communicate with your customers — would you say your business style is more professional and polished, warm and friendly, or relaxed and casual? This helps me match your tone in every message."
+Accept quickSelect: ["Professional & Polished", "Warm & Friendly", "Relaxed & Casual"]
+Map selection → brandVoice: 'professional' | 'friendly' | 'casual'
+
+PHASE 5 — GOALS (70-80%):
 Ask: "What's the thing that frustrates you most about running this business day-to-day? Not the service work itself — the stuff around it. The calls you miss, the invoices you forget, the reviews you never ask for."
 Listen and reflect their pain point back to them with a specific Autumn8 solution.
 
-PHASE 5 — CREDENTIALS PREVIEW (75-85%):
+PHASE 6 — CREDENTIALS PREVIEW (80-88%):
 Explain what access will be needed (Google Business Profile via OAuth, optionally Yelp/other platforms).
 Be transparent about exactly what will and won't be accessed.
 Tell them this will be set up in their dashboard after this conversation.
 Don't actually collect credentials here.
 
-PHASE 6 — AUTOMATION PLAN (85-95%):
+PHASE 7 — AUTOMATION PLAN (88-97%):
 Generate a personalized plan using EVERYTHING collected:
 - Use their actual business name, location, services
 - Reference their specific pain points
 - Give projected impacts (lead capture rate improvement, review growth, etc.)
 - Present as a rich formatted message
 
-PHASE 7 — COMPLETE (100%):
+PHASE 8 — COMPLETE (100%):
 Confirm activation. Tell them:
 - What's already running
 - What goes live in 24 hours
@@ -115,7 +120,11 @@ Only include what was actually confirmed in THIS exchange:
 - reviewCount: number
 - starRating: number
 - primaryPainPoint: string
-- successMetric: string`;
+- successMetric: string
+- brandVoice: 'professional' | 'friendly' | 'casual'
+- clientProfile: object with ALL confirmed facts (businessName, location, industry, services, employeeCount, yearsInBusiness, serviceFrequency, avgJobValue, hasGBP, gbpUrl, hasWebsite, websiteUrl, reviewCount, starRating, primaryPainPoint, brandVoice)
+
+IMPORTANT: Once the conversation reaches Phase 7 (Automation Plan), the clientProfile field should contain a complete JSON object summarizing everything collected. This object is persisted to the database and injected into all future AI-generated content for this client.`;
 
 export async function POST(request: NextRequest) {
   try {
