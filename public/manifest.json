@@ -1,0 +1,29 @@
+{
+  "name": "Autumn8 Field",
+  "short_name": "Autumn8",
+  "description": "Autumn8 field operations for crew members",
+  "start_url": "/crew/today",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f9fafb",
+  "theme_color": "#f97316",
+  "categories": ["business", "productivity"],
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "any",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [],
+  "shortcuts": [
+    {
+      "name": "Today's Schedule",
+      "short_name": "Today",
+      "description": "View your schedule for today",
+      "url": "/crew/today",
+      "icons": [{ "src": "/favicon.png", "sizes": "any" }]
+    }
+  ]
+}
